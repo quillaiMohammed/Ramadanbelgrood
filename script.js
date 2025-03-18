@@ -1,8 +1,8 @@
-// العد التنازلي لرمضان (1 مارس 2025)
+// العد التنازلي لرمضان (ينتهي في 29 رمضان 2025)
 function updateCountdown() {
-    const ramadanDate = new Date('March 1, 2025 00:00:00').getTime();
+    const ramadanEndDate = new Date('March 29, 2025 00:00:00').getTime();
     const now = new Date().getTime();
-    const distance = ramadanDate - now;
+    const distance = ramadanEndDate - now;
 
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -53,8 +53,6 @@ const prayerTimes = [
     { day: "27 (خميس)", suhur: "04:22", fajr: "04:37", sunrise: "06:16", zuhr: "12:41", asr: "16:06", maghrib: "19:02", iftar: "19:02", isha: "20:31" },
     { day: "28 (جمعة)", suhur: "04:19", fajr: "04:34", sunrise: "06:14", zuhr: "12:40", asr: "16:07", maghrib: "19:04", iftar: "19:04", isha: "20:33" },
     { day: "29 (سبت)", suhur: "04:17", fajr: "04:32", sunrise: "06:12", zuhr: "12:40", asr: "16:08", maghrib: "19:05", iftar: "19:05", isha: "20:34" },
-    { day: "30 (أحد)", suhur: "04:14", fajr: "04:29", sunrise: "06:10", zuhr: "12:40", asr: "16:09", maghrib: "19:07", iftar: "19:07", isha: "20:36" },
-    { day: "31 (إثنين)", suhur: "04:12", fajr: "04:27", sunrise: "06:07", zuhr: "12:39", asr: "16:10", maghrib: "19:08", iftar: "19:08", isha: "20:38" },
 ];
 
 function fillPrayerTable() {
