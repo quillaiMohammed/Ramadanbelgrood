@@ -25,7 +25,7 @@ header {
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 10px;
 }
 
@@ -41,7 +41,7 @@ header p {
 }
 
 #timer {
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: bold;
     color: #f1c40f; /* لون ذهبي */
 }
@@ -57,7 +57,7 @@ header p {
 }
 
 #big-lamp img {
-    width: 200px; /* حجم المصباح */
+    width: 150px; /* حجم المصباح */
     height: auto;
 }
 
@@ -150,3 +150,70 @@ footer {
     bottom: 0;
     z-index: 2;
 }
+
+/* استعلامات الوسائط للتجاوب مع الأجهزة المختلفة */
+@media (max-width: 768px) {
+    /* تعديل حجم الخطوط للهواتف */
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p {
+        font-size: 1em;
+    }
+
+    #timer {
+        font-size: 1.2em;
+    }
+
+    /* تعديل حجم المصباح */
+    #big-lamp img {
+        width: 100px;
+    }
+
+    /* تعديل حجم الجدول */
+    #prayer-times {
+        padding: 10px;
+    }
+
+    #prayer-times th, #prayer-times td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    /* تعديل حجم الدعاء */
+    #daily-dua {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    /* تعديل حجم الخطوط للهواتف الصغيرة */
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header p {
+        font-size: 0.9em;
+    }
+
+    #timer {
+        font-size: 1em;
+    }
+
+    /* تعديل حجم المصباح */
+    #big-lamp img {
+        width: 80px;
+    }
+
+    /* تعديل حجم الجدول */
+    #prayer-times th, #prayer-times td {
+        padding: 6px;
+        font-size: 0.8em;
+    }
+
+    /* تعديل حجم الدعاء */
+    #daily-dua {
+        font-size: 0.9em;
+    }
+    }
