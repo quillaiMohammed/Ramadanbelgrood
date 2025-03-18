@@ -46,27 +46,69 @@ header p {
     color: #f1c40f; /* لون ذهبي */
 }
 
-/* تنسيق مصباح رمضان الكبير */
-#big-lamp {
+/* تنسيق فانوس رمضان */
+#ramadan-lantern {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-    animation: lampGlow 2s infinite alternate;
+    width: 100px;
+    height: 150px;
 }
 
-#big-lamp img {
-    width: 150px; /* حجم المصباح */
-    height: auto;
+.lantern-top, .lantern-body, .lantern-bottom, .lantern-light {
+    position: absolute;
 }
 
-@keyframes lampGlow {
+.lantern-top {
+    width: 30px;
+    height: 20px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lantern-body {
+    width: 80px;
+    height: 100px;
+    background-color: #f1c40f;
+    border-radius: 10px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 20px rgba(241, 196, 15, 0.8);
+}
+
+.lantern-bottom {
+    width: 30px;
+    height: 20px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lantern-light {
+    width: 60px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: lanternGlow 2s infinite alternate;
+}
+
+@keyframes lanternGlow {
     0% {
-        filter: brightness(1);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
     100% {
-        filter: brightness(1.5);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
     }
 }
 
@@ -205,9 +247,20 @@ footer p {
         font-size: 1.2em;
     }
 
-    /* تعديل حجم المصباح */
-    #big-lamp img {
-        width: 100px;
+    /* تعديل حجم الفانوس */
+    #ramadan-lantern {
+        width: 80px;
+        height: 120px;
+    }
+
+    .lantern-body {
+        width: 60px;
+        height: 80px;
+    }
+
+    .lantern-light {
+        width: 50px;
+        height: 60px;
     }
 
     /* تعديل حجم الجدول */
@@ -240,9 +293,20 @@ footer p {
         font-size: 1em;
     }
 
-    /* تعديل حجم المصباح */
-    #big-lamp img {
-        width: 80px;
+    /* تعديل حجم الفانوس */
+    #ramadan-lantern {
+        width: 60px;
+        height: 100px;
+    }
+
+    .lantern-body {
+        width: 50px;
+        height: 70px;
+    }
+
+    .lantern-light {
+        width: 40px;
+        height: 50px;
     }
 
     /* تعديل حجم الجدول */
@@ -250,9 +314,56 @@ footer p {
         padding: 6px;
         font-size: 0.8em;
     }
+/* تنسيق دعاء اليوم */
+#dua {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+}
 
-    /* تعديل حجم الدعاء */
-    #daily-dua {
-        font-size: 0.9em;
+#daily-dua {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #f1c40f;
+    line-height: 1.6;
+    text-align: justify;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border-left: 5px solid #f1c40f;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
     }
+    100% {
+        opacity: 1;
     }
+}
+
+/* تنسيق زر تغيير الدعاء */
+#change-dua-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #f1c40f;
+    color: #0a1f2b;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    z-index: 2;
+    position: relative;
+}
+
+#change-dua-button:hover {
+    background-color: #e67e22;
+}
+    
