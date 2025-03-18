@@ -10,6 +10,12 @@
     <!-- الخلفية المتحركة (أضواء خفيفة) -->
     <div id="lights"></div>
 
+    <!-- شريط التقدم -->
+    <div id="progress-bar"></div>
+
+    <!-- زر العودة إلى الأعلى -->
+    <button id="back-to-top" title="العودة إلى الأعلى">↑</button>
+
     <!-- المحتوى الرئيسي -->
     <header>
         <h1>رمضان كريم</h1>
@@ -32,8 +38,11 @@
         </div>
     </section>
 
+    <!-- زر لإظهار الجدول -->
+    <button id="show-table-button">إظهار جدول أوقات الصلاة</button>
+
     <!-- جدول أوقات الصلاة -->
-    <section id="prayer-times">
+    <section id="prayer-times" style="display: none;">
         <h2>أوقات الصلاة في بيلغورود - مارس 2025</h2>
         <table>
             <thead>
@@ -69,8 +78,12 @@
     <!-- التذييل -->
     <footer>
         <p>© 2025 رمضان كريم. جميع الحقوق محفوظة.</p>
+        <p>تصميم: قويلاي محمد عيسى (Quillai Mohammed Eisa)</p>
     </footer>
+
+    <!-- صوت للتفاعلات -->
+    <audio id="click-sound" src="click.mp3"></audio>
 
     <script src="script.js"></script>
 </body>
-                        </html>
+</html>
