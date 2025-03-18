@@ -23,8 +23,7 @@ function updateCountdown() {
 const interval = setInterval(updateCountdown, 1000);
 
 // جدول أوقات الصلاة
-const prayerTimes = [
-    { day: "1 (سبت)", suhur: "05:19", fajr: "05:34", sunrise: "07:13", zuhr: "12:47", asr: "15:39", maghrib: "18:19", iftar: "18:19", isha: "19:48" },
+const prayerTimes = { day: "1 (سبت)", suhur: "05:19", fajr: "05:34", sunrise: "07:13", zuhr: "12:47", asr: "15:39", maghrib: "18:19", iftar: "18:19", isha: "19:48" },
     { day: "2 (أحد)", suhur: "05:17", fajr: "05:32", sunrise: "07:11", zuhr: "12:47", asr: "15:40", maghrib: "18:21", iftar: "18:21", isha: "19:50" },
     { day: "3 (إثنين)", suhur: "05:15", fajr: "05:30", sunrise: "07:09", zuhr: "12:47", asr: "15:41", maghrib: "18:22", iftar: "18:22", isha: "19:51" },
     { day: "4 (ثلاثاء)", suhur: "05:13", fajr: "05:28", sunrise: "07:07", zuhr: "12:47", asr: "15:42", maghrib: "18:24", iftar: "18:24", isha: "19:53" },
@@ -63,7 +62,6 @@ function fillPrayerTable() {
             <td>${time.day}</td>
             <td>${time.suhur}</td>
             <td>${time.fajr}</td>
-            <td>${time.sunrise}</td>
             <td>${time.zuhr}</td>
             <td>${time.asr}</td>
             <td>${time.maghrib}</td>
