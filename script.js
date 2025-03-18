@@ -108,9 +108,9 @@ window.onscroll = function() {
 
 // تغيير خلفية الصفحة تلقائيًا
 const backgrounds = [
-    'url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR2JED1Djzc_C-2v5ULIH_64tnQu4eJJINCCFOWyFAK1sl0pFfKxF1OomeuCVngfD-PN7Afa99trzNDsPCKfG-OJ3eJYeYm6VcQOzB7gg")',
-    'url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR2JED1Djzc_C-2v5ULIH_64tnQu4eJJINCCFOWyFAK1sl0pFfKxF1OomeuCVngfD-PN7Afa99trzNDsPCKfG-OJ3eJYeYm6VcQOzB7gg")',
-    'url("https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR2JED1Djzc_C-2v5ULIH_64tnQu4eJJINCCFOWyFAK1sl0pFfKxF1OomeuCVngfD-PN7Afa99trzNDsPCKfG-OJ3eJYeYm6VcQOzB7gg")',
+    'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGjUyhRvZs-7RVpdO5DMHUiXZbr-sO9sgyUg&s")',
+    'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGjUyhRvZs-7RVpdO5DMHUiXZbr-sO9sgyUg&s")',
+    'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGjUyhRvZs-7RVpdO5DMHUiXZbr-sO9sgyUg&s")',
 ];
 
 let currentBackground = 0;
