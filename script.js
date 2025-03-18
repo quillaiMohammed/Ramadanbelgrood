@@ -23,7 +23,8 @@ function updateCountdown() {
 const interval = setInterval(updateCountdown, 1000);
 
 // جدول أوقات الصلاة
-const prayerTimes = { day: "1 (سبت)", suhur: "05:19", fajr: "05:34", sunrise: "07:13", zuhr: "12:47", asr: "15:39", maghrib: "18:19", iftar: "18:19", isha: "19:48" },
+const prayerTimes = [
+    { day: "1 (سبت)", suhur: "05:19", fajr: "05:34", sunrise: "07:13", zuhr: "12:47", asr: "15:39", maghrib: "18:19", iftar: "18:19", isha: "19:48" },
     { day: "2 (أحد)", suhur: "05:17", fajr: "05:32", sunrise: "07:11", zuhr: "12:47", asr: "15:40", maghrib: "18:21", iftar: "18:21", isha: "19:50" },
     { day: "3 (إثنين)", suhur: "05:15", fajr: "05:30", sunrise: "07:09", zuhr: "12:47", asr: "15:41", maghrib: "18:22", iftar: "18:22", isha: "19:51" },
     { day: "4 (ثلاثاء)", suhur: "05:13", fajr: "05:28", sunrise: "07:07", zuhr: "12:47", asr: "15:42", maghrib: "18:24", iftar: "18:24", isha: "19:53" },
@@ -74,43 +75,89 @@ function fillPrayerTable() {
 
 fillPrayerTable();
 
-// دعاء اليوم
-const duas = [
-    "اللهم أعني على صيامه وقيامه، وتقبله مني.",
-    "اللهم اجعل صيامي فيه صيام الصائمين، وقيامي فيه قيام القائمين.",
-    "اللهم ارزقني فيه الذكر والخشوع، واغفر لي ذنوبي يا عزيز.",
-    "اللهم ارزقني فيه الرحمة والمغفرة، واجعلني من عتقائك من النار.",
-    "اللهم ارزقني فيه الصبر والثبات، واغفر لي ذنوبي يا غفور.",
-    "اللهم ارزقني فيه القرب منك، واجعلني من أوليائك الصالحين.",
-    "اللهم ارزقني فيه الفوز بالجنة، ونجني من النار.",
-    "اللهم ارزقني فيه الخير كله، واصرف عني الشر كله.",
-    "اللهم ارزقني فيه الهدى والتقى، والعفاف والغنى.",
-    "اللهم ارزقني فيه الصحة والعافية، واجعلني من الشاكرين.",
-    "اللهم ارزقني فيه القوة والنشاط، واجعلني من العابدين.",
-    "اللهم ارزقني فيه السعادة والفرح، واجعلني من المقبولين.",
-    "اللهم ارزقني فيه البركة والرزق، واجعلني من المتقين.",
-    "اللهم ارزقني فيه العلم النافع، واجعلني من العالمين.",
-    "اللهم ارزقني فيه العمل الصالح، واجعلني من الصالحين.",
-    "اللهم ارزقني فيه الإخلاص في القول والعمل، واجعلني من المخلصين.",
-    "اللهم ارزقني فيه التوفيق في كل أموري، واجعلني من الفائزين.",
-    "اللهم ارزقني فيه الرضا والقناعة، واجعلني من الراضين.",
-    "اللهم ارزقني فيه العفو والعافية، واجعلني من المعافين.",
-    "اللهم ارزقني فيه الجود والكرم، واجعلني من الكرماء.",
-    "اللهم ارزقني فيه الصدق والإخلاص، واجعلني من الصادقين.",
-    "اللهم ارزقني فيه الحلم والصبر، واجعلني من الحلماء.",
-    "اللهم ارزقني فيه القوة والإرادة، واجعلني من العازمين.",
-    "اللهم ارزقني فيه السكينة والطمأنينة، واجعلني من المطمئنين.",
-    "اللهم ارزقني فيه الرفق واللين، واجعلني من الرفقاء.",
-    "اللهم ارزقني فيه العزة والكرامة، واجعلني من المعززين.",
-    "اللهم ارزقني فيه النجاح والفلاح، واجعلني من الناجحين.",
-    "اللهم ارزقني فيه السداد في القول والعمل، واجعلني من المهتدين.",
-    "اللهم ارزقني فيه الرشاد في الأمور كلها، واجعلني من الراشدين.",
-    "اللهم ارزقني فيه الخشية منك، واجعلني من الخاشعين.",
+// إظهار الجدول بعد ضغطة زر
+document.getElementById('show-table-button').addEventListener('click', () => {
+    const tableSection = document.getElementById('prayer-times');
+    tableSection.style.display = 'block';
+    document.getElementById('click-sound').play(); // تشغيل صوت
+});
+
+// زر العودة إلى الأعلى
+window.onscroll = function() {
+    const backToTopButton = document.getElementById('back-to-top');
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+};
+
+document.getElementById('back-to-top').addEventListener('click', () => {
+    document.body.scrollTop = 0; // للمتصفحات القديمة
+    document.documentElement.scrollTop = 0; // للمتصفحات الحديثة
+    document.getElementById('click-sound').play(); // تشغيل صوت
+});
+
+// شريط التقدم
+window.onscroll = function() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+};
+
+// تغيير خلفية الصفحة تلقائيًا
+const backgrounds = [
+    'url("bg1.jpg")',
+    'url("bg2.jpg")',
+    'url("bg3.jpg")',
 ];
 
-function updateDailyDua() {
-    const today = new Date().getDate() - 1; // اليوم الحالي (يبدأ من 0)
-    document.getElementById('daily-dua').innerText = duas[today % duas.length];
+let currentBackground = 0;
+
+function changeBackground() {
+    document.body.style.backgroundImage = backgrounds[currentBackground];
+    currentBackground = (currentBackground + 1) % backgrounds.length;
 }
 
-updateDailyDua();
+setInterval(changeBackground, 5000); // تغيير الخلفية كل 5 ثوانٍ
+
+// رسائل تحفيزية عشوائية
+// ... (الكود السابق حتى جزء الرسائل التحفيزية العشوائية)
+
+// رسائل تحفيزية عشوائية
+const motivationalMessages = [
+    "تقبل الله منا ومنكم صالح الأعمال.",
+    "اللهم بلغنا رمضان وأعنا على صيامه وقيامه.",
+    "رمضان فرصة للتغيير والإصلاح.",
+    "اجعل رمضان بداية جديدة لحياتك.",
+    "الصيام جُنّة، فإذا كان يوم صوم أحدكم فلا يرفث ولا يجهل.",
+    "اللهم أعني على ذكرك وشكرك وحسن عبادتك.",
+    "رمضان شهر المغفرة والرحمة، فاغتنمه.",
+    "اللهم ارزقنا ليلة القدر واجعلنا من عتقائك من النار.",
+    "الصيام نصف الصبر، فاصبر واحتسب الأجر عند الله.",
+    "اللهم اجعل صيامي فيه صيام الصائمين، وقيامي فيه قيام القائمين.",
+    "رمضان فرصة لتصفية القلب وتجديد النية.",
+    "اللهم ارزقنا القبول في هذا الشهر الكريم.",
+    "اجعل رمضان شهرًا للتوبة والاستغفار.",
+    "اللهم ارزقنا الإخلاص في القول والعمل.",
+    "رمضان شهر القرآن، فاجعل له حظًا من وقتك.",
+    "اللهم ارزقنا الجنة ونجنا من النار.",
+    "الصيام ليس فقط عن الطعام والشراب، بل عن كل ما يغضب الله.",
+    "اللهم ارزقنا بركة هذا الشهر واجعلنا من الفائزين.",
+    "رمضان فرصة لتحسين العلاقات مع الله والناس.",
+    "اللهم ارزقنا حسن الخاتمة واجعلنا من الصالحين.",
+];
+
+function updateMotivationalMessage() {
+    const randomMessage = motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
+    document.getElementById('daily-dua').innerText = randomMessage;
+}
+
+// تغيير الرسالة كل 10 ثوانٍ
+setInterval(updateMotivationalMessage, 10000);
+
+// عرض رسالة تحفيزية عند تحميل الصفحة
+updateMotivationalMessage();
+
+// ... (بقية الكود)
