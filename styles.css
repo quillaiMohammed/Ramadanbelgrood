@@ -121,6 +121,8 @@ header p {
     max-width: 800px;
     position: relative;
     z-index: 2;
+    overflow: auto; /* إضافة شريط تمرير إذا كان المحتوى أكبر من المساحة */
+    max-height: 400px; /* تحديد ارتفاع ثابت للجدول */
 }
 
 #prayer-times table {
@@ -131,13 +133,27 @@ header p {
 
 #prayer-times th, #prayer-times td {
     padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2); /* خطوط أفقية وعمودية */
     text-align: center;
+    white-space: nowrap; /* منع النص من الانتقال لسطر جديد */
 }
 
 #prayer-times th {
     background-color: rgba(0, 0, 0, 0.3);
     font-weight: bold;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* خط أفقي سميك للعناوين */
+}
+
+#prayer-times tr:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* تغيير لون الخلفية عند التمرير */
+}
+
+#prayer-times td {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* خطوط أفقية بين الصفوف */
+}
+
+#prayer-times td:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* خطوط عمودية بين الأعمدة */
 }
 
 /* تنسيق دعاء اليوم */
@@ -240,33 +256,3 @@ footer p {
         font-size: 0.9em;
     }
     }
-/* إضافة تنسيقات لشريط التقدم */
-#progress-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 5px;
-    background-color: #f1c40f;
-    width: 0%;
-    z-index: 1000;
-}
-
-/* تنسيق زر العودة إلى الأعلى */
-#back-to-top {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    font-size: 1.2em;
-    background-color: #f1c40f;
-    color: #0a1f2b;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-#back-to-top:hover {
-    background-color: #e67e22;
-}
